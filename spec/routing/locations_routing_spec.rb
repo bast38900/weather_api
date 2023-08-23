@@ -12,8 +12,8 @@ RSpec.describe Api::V1::LocationsController, type: :routing do
   end
 end
 
-# RSpec.describe Api::V2::LocationsController, type: :routing do
-#   it "routes to #create" do
-#     expect(post: "api/v2/locations").to route_to("api/v2/locations#create")
-#   end
-# end
+RSpec.describe Api::V2::LocationsController, type: :routing do
+  it "routes to #create" do
+    expect(post: "api/v2/locations").to route_to("api/v2/locations#create")
+  end
+end

@@ -1,19 +1,7 @@
 # WeatherCondition controller for CRUD operations
-class WeatherConditionsController < ApplicationController
+class Api::V2::WeatherConditionsController < ApplicationController
   # ! Fix
   before_action :set_weather_condition, only: %i[show update destroy]
-
-  # GET /weather_conditions
-  def index
-    @weather_conditions = WeatherCondition.all
-
-    render json: @weather_conditions
-  end
-
-  # GET /weather_conditions/1
-  def show
-    render json: @weather_condition
-  end
 
   # POST /weather_conditions
   def create

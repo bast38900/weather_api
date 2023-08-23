@@ -1,19 +1,7 @@
 # Location controller for CRUD operations
-class LocationsController < ApplicationController
+class Api::V2::LocationsController < ApplicationController
   # ! Fix
   before_action :set_location, only: %i[show update destroy]
-
-  # GET /locations
-  def index
-    @locations = Location.all
-
-    render json: @locations
-  end
-
-  # GET /locations/1
-  def show
-    render json: @location
-  end
 
   # POST /locations
   def create

@@ -1,19 +1,7 @@
 # WeatherReport controller for CRUD operations
-class WeatherReportsController < ApplicationController
+class Api::V2::WeatherReportsController < ApplicationController
   # ! Fix
   before_action :set_weather_report, only: %i[show update destroy]
-
-  # GET /weather_reports
-  def index
-    @weather_reports = WeatherReport.all
-
-    render json: @weather_reports
-  end
-
-  # GET /weather_reports/1
-  def show
-    render json: @weather_report
-  end
 
   # POST /weather_reports
   def create
@@ -24,20 +12,6 @@ class WeatherReportsController < ApplicationController
     else
       render json: @weather_report.errors, status: :unprocessable_entity
     end
-  end
-
-  # PATCH/PUT /weather_reports/1
-  def update
-    if @weather_report.update(weather_report_params)
-      render json: @weather_report
-    else
-      render json: @weather_report.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /weather_reports/1
-  def destroy
-    @weather_report.destroy
   end
 
   private

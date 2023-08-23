@@ -12,10 +12,10 @@ RSpec.describe Api::V1::WeatherReportsController, type: :routing do
   end
 end
 
-# RSpec.describe Api::V2::WeatherReportsController, type: :routing do
-#   describe "routing" do
-#     it "routes to #create" do
-#       expect(post: "api/v2/weather_reports").to route_to("api/v2/weather_reports#create")
-#     end
-#   end
-# end
+RSpec.describe Api::V2::WeatherReportsController, type: :routing do
+  describe "routing" do
+    it "routes to #create" do
+      expect(post: "api/v2/weather_reports").to route_to("api/v2/weather_reports#create")
+    end
+  end
+end
