@@ -1,6 +1,6 @@
 # README
 
-# Setup
+## Setup
 in setting.json, add:
 ```
    "ruby.lint": {
