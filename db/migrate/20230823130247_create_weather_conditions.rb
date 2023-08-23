@@ -2,9 +2,9 @@
 class CreateWeatherConditions < ActiveRecord::Migration[7.0]
   def change
     create_table :weather_conditions do |t|
-      t.text :text
+      t.text :text, null: false
       t.string :icon
-      t.integer :code
+      t.integer :code, null: false
 
       t.timestamps
     end
