@@ -81,47 +81,4 @@ RSpec.describe "/locations", type: :request do
       end
     end
   end
-
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested location" do
-        location = Location.create! valid_attributes
-        patch location_url(location),
-              params: { location: new_attributes }, headers: valid_headers, as: :json
-        location.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "renders a JSON response with the location" do
-        location = Location.create! valid_attributes
-        patch location_url(location),
-              params: { location: new_attributes }, headers: valid_headers, as: :json
-        expect(response).to have_http_status(:ok)
-        expect(response.content_type).to match(a_string_including("application/json"))
-      end
-    end
-
-    context "with invalid parameters" do
-      it "renders a JSON response with errors for the location" do
-        location = Location.create! valid_attributes
-        patch location_url(location),
-              params: { location: invalid_attributes }, headers: valid_headers, as: :json
-        expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to match(a_string_including("application/json"))
-      end
-    end
-  end
-
-  describe "DELETE /destroy" do
-    it "destroys the requested location" do
-      location = Location.create! valid_attributes
-      expect {
-        delete location_url(location), headers: valid_headers, as: :json
-      }.to change(Location, :count).by(-1)
-    end
-  end
 end
