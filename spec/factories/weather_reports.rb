@@ -1,4 +1,5 @@
 FactoryBot.define do
+  # ! NOT WORKING => Association problems
   factory :weather_report do
     location { nil }
     last_updated_at { "2023-08-23 12:32:03" }
