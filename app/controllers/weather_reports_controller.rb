@@ -1,5 +1,7 @@
+# WeatherReport controller for CRUD operations
 class WeatherReportsController < ApplicationController
-  before_action :set_weather_report, only: %i[ show update destroy ]
+  # ! Fix
+  before_action :set_weather_report, only: %i[show update destroy]
 
   # GET /weather_reports
   def index
@@ -39,13 +41,14 @@ class WeatherReportsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_weather_report
-      @weather_report = WeatherReport.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def weather_report_params
-      params.require(:weather_report).permit(:location_id, :last_updated_at, :temperature, :wind_direction, :wind_kph, :humidity, :feels_like_temperature, :uv_index, :gust_kph, :weather_condition_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_weather_report
+    @weather_report = WeatherReport.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def weather_report_params
+    params.require(:weather_report).permit(:location_id, :last_updated_at, :temperature, :wind_direction, :wind_kph, :humidity, :feels_like_temperature, :uv_index, :gust_kph, :weather_condition_id)
+  end
 end

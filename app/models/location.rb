@@ -2,6 +2,6 @@
 class Location < ApplicationRecord
   # Associations
   has_many :wheather_reports
-  # Validation
+  # ! Validation => add review topic
   validates :name, uniqueness: true
 end

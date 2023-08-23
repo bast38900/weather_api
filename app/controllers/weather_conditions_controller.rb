@@ -1,5 +1,7 @@
+# WeatherCondition controller for CRUD operations
 class WeatherConditionsController < ApplicationController
-  before_action :set_weather_condition, only: %i[ show update destroy ]
+  # ! Fix
+  before_action :set_weather_condition, only: %i[show update destroy]
 
   # GET /weather_conditions
   def index
@@ -24,28 +26,15 @@ class WeatherConditionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /weather_conditions/1
-  def update
-    if @weather_condition.update(weather_condition_params)
-      render json: @weather_condition
-    else
-      render json: @weather_condition.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /weather_conditions/1
-  def destroy
-    @weather_condition.destroy
-  end
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_weather_condition
-      @weather_condition = WeatherCondition.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def weather_condition_params
-      params.require(:weather_condition).permit(:text, :icon, :code)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_weather_condition
+    @weather_condition = WeatherCondition.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def weather_condition_params
+    params.require(:weather_condition).permit(:text, :icon, :code)
+  end
 end
