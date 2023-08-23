@@ -2,4 +2,6 @@
 class Location < ApplicationRecord
   # Associations
   has_many :wheather_reports
+  # Validation
+  validates :name, uniqueness: true
 end

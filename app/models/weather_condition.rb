@@ -2,4 +2,6 @@
 class WeatherCondition < ApplicationRecord
   # Associations
   has_many :wheather_reports
+  # Validation
+  validates :code, uniqueness: true
 end
