@@ -2,6 +2,9 @@
 class Api::V2::LocationsController < ApplicationController
   # ! Fix
   before_action :set_location, only: %i[show update destroy]
+  # Authentication before action method can run
+  before_action :authenticate
+  TOKEN = "secret".freeze
 
   # POST /locations
   def create
@@ -24,5 +27,12 @@ class Api::V2::LocationsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def location_params
     params.require(:location).permit(:name, :region, :country, :timezone)
+  end
+
+  # authenticate with token
+  def authenticate
+    authenticate_or_request_with_http_token do |token, options|
+      ActiveSupport::SecurityUtils.secure_compare(token, TOKEN)
+    end
   end
 end
