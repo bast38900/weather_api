@@ -1,18 +1,18 @@
-require 'httparty'
-require 'dotenv'
-
 # WeatherReport controller for CRUD operations, V1
 class Api::V1::WeatherReportsController < ApplicationController
   # ! Fix
   before_action :set_weather_report, only: %i[show update destroy]
 
-  # GET /weather_reports
-  def index
-    # ? FOR TESTING
-    api_key = ENV['API_KEY']
-    @weather_reports = HTTParty.get("http://api.weatherapi.com/v1/current.json?key=#{api_key}&q=London&aqi=no")
+  # # GET /weather_reports
+  # def index
+  #   @weather_reports = WeatherReport.all
 
-    # @weather_reports = WeatherReport.all
+  #   render json: @weather_reports
+  # end
+
+  # ? GET /weather_reports from API endpoint
+  def index
+    @weather_reports = fetch_data
 
     render json: @weather_reports
   end
