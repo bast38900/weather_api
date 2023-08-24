@@ -14,17 +14,11 @@ class Api::V2::WeatherReportsController < ApplicationController
   #   end
   # end
 
-  # POST /weather_reports
-  def create
+  # ? GET /weather_reports from API endpoint
+  def index
     @weather_reports = fetch_data
 
-    @weather_report = WeatherReport.new(weather_report_params)
-
-    if @weather_report.save
-      render json: @weather_report, status: :created, location: @weather_report
-    else
-      render json: @weather_report.errors, status: :unprocessable_entity
-    end
+    render json: @weather_reports
   end
 
   private

@@ -3,16 +3,9 @@ class Api::V1::WeatherReportsController < ApplicationController
   # ! Fix
   before_action :set_weather_report, only: %i[show update destroy]
 
-  # # GET /weather_reports
-  # def index
-  #   @weather_reports = WeatherReport.all
-
-  #   render json: @weather_reports
-  # end
-
-  # ? GET /weather_reports from API endpoint
+  # GET /weather_reports
   def index
-    @weather_reports = fetch_data
+    @weather_reports = WeatherReport.all
 
     render json: @weather_reports
   end
