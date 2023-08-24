@@ -1,7 +1,6 @@
 FactoryBot.define do
-  # ! NOT WORKING => Association problems
   factory :weather_report do
-    location { nil }
+    location
     last_updated_at { "2023-08-23 12:32:03" }
     temperature { 21.0 }
     wind_direction { "NW" }
@@ -10,6 +9,6 @@ FactoryBot.define do
     feels_like_temperature { 21.0 }
     uv_index { 6.0 }
     gust_kph { 8.3 }
-    weather_condition { nil }
+    weather_condition
   end
 end
