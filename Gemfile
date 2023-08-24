@@ -46,6 +46,10 @@ group :development, :test do
   # For test data generation
   gem "factory_bot_rails"
   gem 'faker'
+
+  # Http Requests and API keys
+  gem 'httparty'
+  gem 'dotenv-rails'
 end
 
 group :development do
